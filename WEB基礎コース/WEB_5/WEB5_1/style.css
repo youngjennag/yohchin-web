@@ -1,0 +1,11 @@
+@charset "UTF-8";
+h1 {
+  color: #ffb74c;
+}
+h2 {
+  color: navy;
+
+}
+p {
+  color:rgba(10, 165, 41, 0.5);
+}
