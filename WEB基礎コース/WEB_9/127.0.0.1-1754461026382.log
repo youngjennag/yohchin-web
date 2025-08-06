@@ -1,0 +1,51 @@
+ContentMain.js:18 [ContentMain]
+ContentMain.js:18 [ContentService] document.readyState: loading
+ContentMain.js:5 [ContentService.SetContentInitData] target: { TabId: 248302712, FrameId: 0}
+script.js:9 外部JavaScriptファイルを
+index.html:13 HTMLで読み込んでいます。
+for (var i = 0; i < 5;i++){
+    console.log("i:" + i);
+}
+VM260:2 i:0
+VM260:2 i:1
+VM260:2 i:2
+VM260:2 i:3
+VM260:2 i:4
+undefined
+// 前置演算の場合
+let a = 3;
+let b = ++a;
+
+console.log(a);
+console.log(b);
+
+VM511:5 4
+VM511:6 4
+undefined
+// 後置演算の場合
+let a = 3;
+let b = a++;
+
+console.log(a);
+console.log(b);
+VM633:5 4
+VM633:6 3
+undefined
+let n = 0;
+while() {}
+VM692:2 Uncaught SyntaxError: Unexpected token ')'
+let n = 0;
+while(n < 3) {
+    console.log("n:" + n);
+    n++;
+}
+VM781:3 n:0
+VM781:3 n:1
+VM781:3 n:2
+2
+const x = 100;
+do {
+    console.log(x);
+}while(x < 10);
+VM919:3 100
+undefined
