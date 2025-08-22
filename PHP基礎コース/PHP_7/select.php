@@ -17,25 +17,30 @@ try {
     $user,$pass,$options
   );
   echo "接続に成功しました";
+
 }catch(PDOException $Exception){
   die('接続エラー:'.$Exception->getMessage());
   echo "接続に失敗しました";
 }
 
 try{
-  if(!empty($_POST["pw"])&& !empty($_POST["name"])&& !empty($_POST["address"])){
-    $sql = "INSERT INTO kadai7.1ststep(password,name,address)
-    VALUES('".$_POST["pw"]."','".$_POST["name"]."','".$_POST["address"]."')";
-  $stmh = $pdo->prepare($sql);
-  $stmh->execute();
-  echo "登録完了";
-  }
+  if(isset($_POST["botton"])){
+    $sql = "SELECT * from 1ststep";
+    $stmh = $pdo ->prepare($sql);
+    $stmh ->execute();
 
+    foreach($stmh as $val){
+      $id = $val["id"];
+      $pw = $val["password"];
+      $name = $val["name"];
+      $address = $val["address"];
+    }
+  }
 }catch(PDOException $Exception){
   die('接続エラー:'.$Exception->getMessage());
 }
 
-require_once("./html/inc_all_insert.php");
+require_once("./html/inc_all_select.php");
 exit();
 
 ?>
