@@ -23,10 +23,14 @@ try {
   echo "接続に失敗しました";
 }
 
+// <script>alert("対策していないと危険だよ")</script>
 try{
   $sql = "SELECT id,name,sex,grade from school WHERE flg_del = '0'";
   if(isset($_POST["mode"])){
     if(!empty($_POST["keyword"])){
+
+      $_POST["keyword"] = htmlspecialchars($_POST["keyword"],ENT_QUOTES,"UTF-8");
+
       if(preg_match("/[ |　]/", $_POST["keyword"],$strNum)){
         $keywd[] = preg_replace("/( |　)/","",$_POST["keyword"]);
       }else{
@@ -46,7 +50,7 @@ try{
         }
       }else{
         echo "空白以外入力してください";
-        require_once("./html/inc_all_select.php");
+        require_once("./html/inc_all_search.php");
         exit();
       }
 
