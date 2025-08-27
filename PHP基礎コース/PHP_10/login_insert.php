@@ -60,7 +60,7 @@ try {
       }
 
       if (mb_strlen($name) > $limit || mb_strlen($login_id) > $limit ||mb_strlen($password) > $limit) {
-        $error = "入力できる文字数は20文字までです";
+        $error4 = "入力できる文字数は20文字までです";
         require_once("./html/inc_all_login_insert.php");
         exit();
       }
@@ -72,7 +72,7 @@ try {
       $stmh->execute();
       $view = "登録完了";
     } else {
-      $view = "すべて入力してください";
+      $error5 = "すべて入力してください";
       require_once("./html/inc_all_login_insert.php");
       exit();
     }
