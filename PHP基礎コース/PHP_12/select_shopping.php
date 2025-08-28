@@ -45,7 +45,7 @@ try{
       $stmh2 = $pdo ->prepare($sql2);
       $stmh2 ->execute();
 
-      // 個数を選ぶ
+      // 個数をチェックする
       foreach($stmh2 as $val){
         if($val["quantity"] < $_POST["buy_quantity"]){
           $error = "在庫数以下しか購入できません";
@@ -59,6 +59,12 @@ try{
           $_SESSION["fruit_price"] = $val["price"];
           $_SESSION["price_all"] = $_POST["buy_quantity"]*$val["price"];
 
+          $sql3 =  "INSERT INTO kadai7.shopping_cart(login_id,fruit_name,price,quantity,price_all,flg_del) 
+          VALUES('".$_SESSION["login_id"]."','".$_SESSION["fruit_name"]."','".$_SESSION["fruit_price"]."','".$_SESSION["buy_quantity"]."','".$_SESSION["price_all"]."','0')";
+
+          $stmh3 = $pdo ->prepare($sql3);
+          $stmh3 ->execute();
+
           require_once("./shopping_cart.php");
           exit();
         }
@@ -67,7 +73,6 @@ try{
     }else{
       $error = "商品を選んでください";
     }
-
 
   }
   
