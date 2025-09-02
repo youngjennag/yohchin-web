@@ -1,0 +1,18 @@
+sudo yum update
+sudo yum　install httpd
+sudo　systemctl start httpd
+sudo　systemctl status httpd
+
+cd /var/www/html/
+ls
+vim index.html 
+i インサートモードにする　hello  esc
+:w enter
+:q! エディタの強制終了
+ls
+sudo vim index.html
+i
+hello
+esc
+:w enter
+sudo vim sum.php
