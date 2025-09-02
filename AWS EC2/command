@@ -16,3 +16,19 @@ hello
 esc
 :w enter
 sudo vim sum.php
+
+sudo yum install php
+php -v
+sudo yum install php-mysqlnd php-mbstring php-gd
+sudo systemctl restart httpd
+
+sudo vim info.php
+
+<?php
+$sum = 10 + 1;
+echo $sum;
+?>
+
+AWS EC2上で構築したWebサーバーの動作確認用URL:
+http://3.107.232.193/sum.php → 動的IP
+http://3.104.130.133/info.php　→ Elastic IPを割り当てた固定IP
