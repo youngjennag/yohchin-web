@@ -3,6 +3,7 @@ sudo yum　install httpd
 sudo　systemctl start httpd
 sudo　systemctl status httpd
 
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 cd /var/www/html/
 ls
 vim index.html 
@@ -32,3 +33,95 @@ echo $sum;
 AWS EC2上で構築したWebサーバーの動作確認用URL:
 http://3.107.232.193/sum.php → 動的IP
 http://3.104.130.133/info.php　→ Elastic IPを割り当てた固定IP
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+ls
+cd ~
+cd /
+
+cd ~
+ls
+
+wget https://ja.wordpress.org/latest-ja.zip
+ls
+
+unzip latest-ja.zip
+ls
+cd wordpress
+
+sudo yum install mariadb mariadb-server
+↓
+sudo dnf install mariadb
+sudo dnf install mariadb105-server
+
+sudo dnf install mariadb105-server
+dnf search mariadb
+
+sudo systemctl start mariadb
+sudo mysql -u root (login用)
+update mysql.user set passwors=password('123456') where user='root';（pass設定用：古い）
+sudo mysql
+パスワードを設定：
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+権限を反映：
+FLUSH PRIVILEGES;
+
+mysql -u root -p
+Enter password:xxxxxx
+123456
+
+CREATE user 'wordpress'@'localhost' identified by '123456';
+CREATE database wordpressdb;
+grant all privileges on wordpressdb.* to 'wordpress'@'localhost';
+FLUSH PRIVILEGES;
+
+show databases;
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| wordpressdb        |
++--------------------+
+4 rows in set (0.000 sec)
+
+exit
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+cd /var/www/html　(ドキュメントルート)
+ls
+cd ~
+sudo cp -R wordpress/* /var/www/html
+ls
+cd /var/www/html
+http://3.104.130.133/index.phpを押すと、
+
+http://3.104.130.133/wp-admin/setup-config.php
+http://3.104.130.133
+
+sudo rm index.html
+
+phpのバージョン更新：
+sudo yum install php7.2 -y
+sudo amozon-linux-extras install php7.2 -y
+
+sudo cp wp-config-sample.php wp-config.php
+
+sudo vim wp-config.php 
+xで消す
+ddで削除
+
+define('AUTH_KEY',         '^*+Z}JPI-xtHm%l;V-cF(2I}r=9RKpAU.u2;?1gJk9_7JO0^;*d:Ae> ~{|n.@N;');
+define('SECURE_AUTH_KEY',  '!X$fF$wk9|ithU|y <j0-lU5y2kg8z^vHmRhX=d]`llbsp+b;.f9_Kz0r/x2:jA(');
+define('LOGGED_IN_KEY',    'fHl|u?:1@_4d>SJBRp/BR~P+U]/J?e:KwA12/?~_3mLia3fsz!W@!OpLU-BeKx=F');
+define('NONCE_KEY',        'k/]hAS^q`(ct8CVh~9@*yF(>.kZyHwSlq,- ps*>D:UyHfQt]hwBoZ+Vp|^>-b+h');
+define('AUTH_SALT',        'I^SD%]JB;%#[+LX^W@Y=,%NxAv4PrSR15KoiqvWi@P@t`q|kF5P=X=Y+1sJn>oUg');
+define('SECURE_AUTH_SALT', 'C&6l5tQ^cA+|zK,v u|t|G<^G!YK*BHn.pUmyi~Lk0@eg&U]N|RwRj%$#[^lyXLq');
+define('LOGGED_IN_SALT',   ' WR:<lJpxD!8^D)3NS%0yW^@S8v[/VHWI?*O`Eg8*9Xtw+(::S^7|j69qyrRQ?`&');
+define('NONCE_SALT',       'p>huMi8xHz;1SUDJZU]Z:425{S|aK+SM:FE.u;3p(8-X_W]Lin`W8c}:gFsjF8_;');
+
+
+
