@@ -123,5 +123,16 @@ define('SECURE_AUTH_SALT', 'C&6l5tQ^cA+|zK,v u|t|G<^G!YK*BHn.pUmyi~Lk0@eg&U]N|Rw
 define('LOGGED_IN_SALT',   ' WR:<lJpxD!8^D)3NS%0yW^@S8v[/VHWI?*O`Eg8*9Xtw+(::S^7|j69qyrRQ?`&');
 define('NONCE_SALT',       'p>huMi8xHz;1SUDJZU]Z:425{S|aK+SM:FE.u;3p(8-X_W]Lin`W8c}:gFsjF8_;');
 
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+ll
+sudo chown apache.apache -R /var/www/html
+ll
+sudo chmod +w -R /var/www/html
+ll
+clear
+
+自分の簡易ウェブサイト：
+http://3.104.130.133/
+
 
 
