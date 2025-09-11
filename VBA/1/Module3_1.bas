@@ -22,3 +22,20 @@ Sub 文字連結()
     MsgBox "C:" & a * b
 End Sub
 
+
+Sub 表示形式変更()
+    MsgBox Format(0.9786, "0.0%")
+End Sub
+
+Sub 今日の日付()
+    MsgBox Date
+End Sub
+
+Sub Msg例()
+    MsgBox "犬は好きですか？", vbYesNo, "質問"
+End Sub
+Sub Msg例2()
+    Dim 回答 As Long
+    回答 = MsgBox("犬は好きですか？", vbYesNo, "質問")
+    MsgBox 回答, vbOKOnly, "押されたボタン"
+End Sub
