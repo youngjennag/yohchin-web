@@ -4,7 +4,6 @@ Sub work1()
     Range("A1").Font.Name = "Aria Black"
 End Sub
 
-
 Sub work2()
     Worksheets("work2").Select
     Range("A1").Font.Bold = True
@@ -73,12 +72,12 @@ Sub work13()
     Columns(2).Delete
 End Sub
 
-Sub AutoFilter•¡”ðŒ()
+Sub AutoFilterè¤‡æ•°æ¡ä»¶()
     Range("A1:C4").AutoFilter _
         Field:=2, _
-        Criteria1:="ƒf[ƒ^A", _
+        Criteria1:="ãƒ‡ãƒ¼ã‚¿A", _
         Operator:=xlOr, _
-        Criteria2:="ƒf[ƒ^C"
+        Criteria2:="ãƒ‡ãƒ¼ã‚¿C"
 End Sub
 
 Sub work14()
@@ -131,7 +130,7 @@ End Sub
 
 Sub work23()
     Worksheets("work23").Select
-    Workbooks.Open "››.xlsx"
+    Workbooks.Open "â—‹â—‹.xlsx"
 End Sub
 
 Sub work24()
@@ -142,4 +141,5 @@ End Sub
 Sub work25()
     Application.Quit
 End Sub
+
 
