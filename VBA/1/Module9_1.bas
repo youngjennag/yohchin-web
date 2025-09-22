@@ -118,11 +118,28 @@ Sub work20()
     Workbooks("Sample9_1.xlsm").Activate
 End Sub
 
-
 Sub work21()
     Worksheets("work21").Select
-    Range("B2") = Workbooks("Sample9_1.xlsm").Path
-    Range("B3") = Workbooks("Sample9_1.xlsm").Name
+    Range("B2") = Workbooks(1).Path
+    Range("B3") = Workbooks(1).Name
 End Sub
 
+Sub work22()
+    Worksheets("work22").Select
+    Workbooks.Add
+End Sub
+
+Sub work23()
+    Worksheets("work23").Select
+    Workbooks.Open "ÅõÅõ.xlsx"
+End Sub
+
+Sub work24()
+    Worksheets("work24").Select
+    Workbooks(2).Close
+End Sub
+
+Sub work25()
+    Application.Quit
+End Sub
 
