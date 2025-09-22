@@ -46,7 +46,83 @@ Sub work8()
     Range("A2").Copy Destination:=Range("B2")
 End Sub
 
+Sub work9()
+    Worksheets("work9").Select
+    Range("A1").Copy
+    ActiveSheet.Paste Destination:=Range("A2")
+End Sub
+
+Sub work10()
+    Worksheets("work10").Select
+    Application.CutCopyMode = False
+End Sub
+
+Sub work11()
+    Worksheets("work11").Select
+    Range("A1:C1").Columns.AutoFit
+End Sub
+
+Sub work12()
+    Worksheets("work12").Select
+    'Columns("C").Insert
+    Rows(2).Insert CopyOrigin:=xlFormatRightOrBelow
+End Sub
+
+Sub work13()
+    Worksheets("work13").Select
+    Columns(2).Delete
+End Sub
+
+Sub AutoFilter複数条件()
+    Range("A1:C4").AutoFilter _
+        Field:=2, _
+        Criteria1:="データA", _
+        Operator:=xlOr, _
+        Criteria2:="データC"
+End Sub
+
+Sub work14()
+    Worksheets("work14").Select
+    ActiveSheet.AutoFilterMode = False
+End Sub
+
+Sub work15()
+    Worksheets("work15").Select
+    Worksheets("work15_2").Select False
+End Sub
+
+Sub work16()
+    Worksheets("work16").Select
+    Worksheets("work16").Name = "ABC"
+End Sub
+
+Sub work17()
+    Worksheets("work17").Select
+    Worksheets("work17").Copy after:=Worksheets("work17")
+End Sub
+
+Sub work18()
+    Worksheets("work18").Select
+    Worksheets.Add before:=Worksheets("work18")
+End Sub
+
+Sub work19()
+    Worksheets("work19").Select
+    Worksheets.Add before:=Worksheets("work19")
+    'Application.DisplayAlerts = False
+    Worksheets("work19").Delete
+    Application.DisplayAlerts = True
+End Sub
+
+Sub work20()
+    Workbooks("Sample9_1.xlsm").Activate
+End Sub
 
 
+Sub work21()
+    Worksheets("work21").Select
+    Range("B2") = Workbooks("Sample9_1.xlsm").Path
+    Range("B3") = Workbooks("Sample9_1.xlsm").Name
+End Sub
 
 
