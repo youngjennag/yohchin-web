@@ -1,0 +1,22 @@
+/* WHILE文*/
+CREATE OR REPLACE PROCEDURE PROC_SAMPLE
+IS
+    w_COUNT NUMBER(3);
+BEGIN
+    w_COUNT := 1;
+
+    WHILE w_COUNT < 10 LOOP
+        DBMS_OUTPUT.PUT_LINE('カウント' || w_COUNT);
+        w_COUNT := w_COUNT + 1;
+    END LOOP;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error');
+END;
+/
+
+BEGIN
+    PROC_SAMPLE();
+END;
+/

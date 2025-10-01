@@ -1,0 +1,19 @@
+CREATE OR REPLACE FUNCTION FUNC_GET_INFO(
+    IN_NO IN emp.emp_no%TYPE
+) RETURN VARCHAR2
+IS
+    p_NAME emp.emp_name%TYPE; 
+ 
+BEGIN
+    SELECT emp_name INTO p_NAME FROM emp WHERE emp_no = IN_NO;
+    RETURN p_NAME;
+ 
+EXCEPTION
+  WHEN OTHERS THEN
+    RETURN 'Error';
+END;
+/
+
+SELECT FUNC_GET_INFO('001') AS emp_name FROM dual;
+
+SELECT SYSDATE as today FROM DUAL;
