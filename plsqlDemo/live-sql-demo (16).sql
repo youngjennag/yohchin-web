@@ -1,0 +1,23 @@
+/* PL/SQLのカーソル属性:%ISOPEN属性*/
+CREATE OR REPLACE PROCEDURE PROC_SAMPLE
+IS
+    CURSOR c1 IS SELECT * FROM emp;
+BEGIN
+    OPEN c1;
+    IF c1%ISOPEN THEN
+        DBMS_OUTPUT.PUT_LINE('カーソルがOPENされています');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('カーソルがOPENされていません');
+    END IF;
+    CLOSE c1;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error');
+END;
+/
+
+BEGIN
+    PROC_SAMPLE;
+END;
+/
